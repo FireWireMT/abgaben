@@ -1,9 +1,83 @@
 Hier werden die Abgaben erscheinen.
 <br>
-Uebung 1 (leer)
-<audio href="abgaben/wave_io/doc/Musik_FireWire.wav controls>
+Uebung 1
+<br>
+<panel>Sprachaufnahme</panel>
+<br>
+<audio href="Sprache_FireWire.wav" controls>
+  Sprachaufnahme
+</audio>
+<br>
+<panel>Musikaufnahme</panel>
+<br>
+<audio href="Musik_FireWire.wav" controls>
   Musikaufnahme
-             </audio>
+</audio>
+<br>
+<panel>sine_hi01</panel>
+<br>
+<audio href="sine_hi01.wav" controls>
+  sine_hi01
+</audio>
+<br>
+<panel>sine_lo01</panel>
+<br>
+<audio href="sine_lo01.wav" controls>
+  sine_lo01
+</audio>
+<br>
+<p>Aufgabe 2.2 und 3.1</p>
+<br>
+<img href="schriftlich.jpg">
+<br>
+<p>Aufgabe 2.3</p>
+<p>
+ <object data="Übung 1 Aufgabe 2.3.docx" type="text/plain" width="400" height="200">
+ </object>
+    
+<p>Das Verfahren zur Vermeidung von Aliasing, auf Soundkarten bezeichnet man als „idealer Tiefpass“. 
+Dieses Verfahren beschreibt eine Funktion, die durch eine Grenzfrequenz B einen Filter besitzt, die nur Frequenzen hindurchlässt die unter der Grenzfrequenz liegen. Alles was größer ist wird blockiert.
+Diesen „idealen Tiefpass“ gibt es allerdings nur in der Theorie. In der Praxis kann der „ideale Tiefpass“ auf Grund von unendlich langen Impulsantworten nicht erreicht werden.
+Der „reale Tiefpass“ kann annähernd an den „idealen Tiefpass“ mit der Formel: H(f) = rect(f/2B)
+berechnet werden.
+B – Grenzfrequenz	f – Frequenz	rect - Rechtecksfunktion
+</p>
+<br>
+<p>Aufgabe 2.4</p>
+<br>
+<panel>downsampled high</panel>
+<object data="out_file_downsampled_sine_hi01.txt" type="text/txt" width="200" height="100">
+ </object>
+<audio href="out_file_downsampled_sine_hi01.wav" controls>
+</audio>
+<br>
+<panel>downsampled low</panel>
+<object data="out_file_downsampled_sine_lo01.txt" type="text/txt" width="200" height="100">
+ </object>
+<audio href="out_file_downsampled_sine_lo01.wav" controls>
+</audio>
+<p>Aufgabe 3.3</p>
+<br>
+<panel>Sprache 10Bit Verlust</panel>
+<audio href="out_file_Sprache_FireWire10rb.wav" controls></audio>
+
+<img href="Plot FireWire_Sprache10rb.PNG">
+<br>
+<panel>Sprache 12Bit Verlust</panel>
+<audio href="out_file_Sprache_FireWire12rb.wav" controls></audio>
+
+<img href="Plot FireWire_Sprache12rb.PNG">
+<br>
+<p>Aufgabe 3.4</p>
+<panel>sine_hi01 Quantisiert</panel>
+<br>
+<audio href="out_file_sine_hi01_q.wav" controls>
+</audio>
+<br>
+<panel>sine_lo01 Quantisiert</panel>
+<br>
+<audio href="out_file_sine_lo01_q.wav" controls>
+</audio>
 <br>
 Uebung 2 (leer)
 <br>
