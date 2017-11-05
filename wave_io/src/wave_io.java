@@ -95,8 +95,8 @@ public class wave_io
 			for (int i=0; i < samples;i++) {
 				short bitredu = readWavFile.sound[i];
 				bitredu &= mask;
-				readWavFile.sound[i] = (short)(readWavFile.sound[i]-bitredu);
-				
+				readWavFile.sound[i] = (short)(readWavFile.sound[i]/bitredu);
+				readWavFile.sound[i] = (short) (readWavFile.sound[i]/bitredu);
 			}
 			
 			WavFile.write_wav(outFilename, numChannels, numFrames, validBits, sampleRate, readWavFile.sound);
