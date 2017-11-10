@@ -1,0 +1,100 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<style type="text/css">
+        <!--
+                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
+                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        //-->
+</style>
+</head>
+
+<body>
+
+<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
+         folgenden.</p>
+</iframe>
+
+<h2>&Uuml;bung 2</h2>
+<br><h3>Aufgabe 1 - 1.1</h3>
+Detailbild
+<br>
+<img src="pics/a2_detail1.bmp">
+<br><br>
+Fl&auml;chenbild
+<br>
+<img src="pics/a2_fl%C3%A4che1.bmp">
+<br>
+    
+<p>Beschreibung</p>
+<p>L&ouml;sung</p>
+
+<br><h3>Aufgabe 2 - 2.1</h3>
+<br>
+<object data="txt/out_grating_H3.txt" type="text/txt" width="200" height="100">
+ </object>
+<img src="pics/out_grating_H3.bmp">
+<br>
+<object data="txt/out_grating_V3.txt" type="text/txt" width="200" height="100">
+ </object>
+<img src="pics/out_grating_V3.bmp">
+<br>
+<br><h3>Aufgabe 2 - 2.2</h3>
+<p>L&ouml;sung</p>
+
+<br><h3>Aufgabe 2 - 2.3</h3>
+<p>
+brightness = Math.sqrt{0.299*Math.pow(r,2) + 0.587*Math.pow(g,2) + 0.114*(Math.pow(b,2))}
+<br>
+    
+Die drei Koeffizienten 0.299, 0.587 und 0.114 gewichten die drei Farbkomponenten hinsichtlich der menschlichen Helligkeitswahrnehmung. Denn bei gleichem Farbwert wird Blau vom Menschen dunkler wahrgenommen als Rot und Rot dunkler als Grün. Die Summe der drei Koeffizienten ergibt 1, entsprechend hat die Funktion den gleichen Wertebereich wie die drei Farbkomponenten.</p>
+<br>
+Detail grau
+<br>
+<img src="pics/out_a2_detail_grey.bmp">
+<br><br>
+Fl&auml;che grau    
+<br>
+<img src="pics/out_a2_fl%C3%A4che_grey.bmp">
+<br>
+<br><h3>Aufgabe 2 - 2.4</h3>
+<p>Das Aliasing entsteht durch eine Bewegung, die schneller ist als die aufnehmbaren Bilder pro Sekunde des Aufnahmegeräts. Dadurch entsteht die Illusion, dass das Objekt sich gar nicht oder Rückwärts bewegt.
+<br><br>
+<img src="pics/out_grating_H3_downsampledHori.bmp">
+<br>
+<img src="pics/out_grating_V3_downsampledVert.bmp">  </p>
+    
+<br><h3>Aufgabe 2 - 2.5</h3>
+<br>
+Downsampled Detail
+<br>
+<p><img src="pics/out_a2_detail_downsampledHori.bmp">
+<br><br>
+Downsampled Fl&auml;che
+<br>
+<img src="pics/out_a2_fl%C3%A4che_downsampledHori.bmp">
+<br><br>
+Schon beim ersten Downsampling mit Modulo 2, erkennt man die Verschlechterung im Bild</p>   
+    
+<br><h3>Aufgabe 3 - 3.2</h3>
+<br>
+Detailbild Bitreduktion
+<br>
+<p><img src="pics/a2_detail1_r4.bmp">
+<br><br>
+Fl&auml;chenbild Bitreduktion
+<br>
+<img src="pics/a2_fl%C3%A4che_r1.bmp">
+<br><br>
+Schon ab der Reduktion um ein Bit, verschlechtert sich die Qualität des Flächenbildes stark.
+Die Ränder der Objekte sind sehr kantig und pixelig.
+Bei der Reduktion des Detailbildes sinkt die Qualität erst nach der Reduktion von 4 Bit stark/merklich. </p> 
+
+<br><h3>Aufgabe 3 - 3.3</h3>
+<p>L&ouml;sung</p>
+    
+</body>
+</html>

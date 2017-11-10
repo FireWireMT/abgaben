@@ -1,0 +1,109 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<style type="text/css">
+        <!--
+                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
+                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        //-->
+</style>
+</head>
+
+<body>
+
+<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
+         folgenden.</p>
+</iframe>
+
+<h2>&Uuml;bung 1</h2>
+<br><h3>Aufgabe 1 - 1.1</h3>
+Sprachaufnahme
+<p><audio src="audio/Sprache_FireWire.wav" controls>
+Sprachaufnahme
+</audio></p>
+<br>
+Musikaufnahme
+<br>
+<p><audio src="audio/Musik_FireWire.wav" controls>
+  Musikaufnahme
+</audio></p>
+
+<br><h3>Aufgabe 1 - 1.2</h3>
+Sine_hi01
+<br>
+<p><audio src="audio/out_file_sine_hi01.wav" controls>
+Sprachaufnahme
+</audio></p>
+<br>
+Sine_lo01
+<p><audio src="audio/out_file_sine_lo01.wav" controls>
+Sprachaufnahme
+</audio></p>
+
+<br><h3>Aufgabe 2 - 2.1</h3>
+Sine_hi01.txt
+<br>
+<p><object data="txt/out_file_sine_hi01.txt" type="text/txt" width="200" height="100"></object></p>
+<br>
+Sine_lo01.txt
+<br>
+<p><object data="txt/out_file_sine_lo01.txt" type="text/txt" width="200" height="100"></object></p>
+
+<br><h3>Aufgabe 2 - 2.2</h3>
+<p><img src="pics/Ue1_a2.2.png" width="600" height="800"></p>
+
+<br><h3>Aufgabe 2 - 2.3</h3>
+<p>Das Verfahren zur Vermeidung von Aliasing, auf Soundkarten bezeichnet man als „idealer Tiefpass“. 
+Dieses Verfahren beschreibt eine Funktion, die durch eine Grenzfrequenz B einen Filter besitzt, die nur Frequenzen hindurchlässt die unter der Grenzfrequenz liegen. Alles was größer ist wird blockiert.
+Diesen „idealen Tiefpass“ gibt es allerdings nur in der Theorie. In der Praxis kann der „ideale Tiefpass“ auf Grund von unendlich langen Impulsantworten nicht erreicht werden.
+Der „reale Tiefpass“ kann annähernd an den „idealen Tiefpass“ mit der Formel: H(f) = rect(f/2B)
+berechnet werden.
+B – Grenzfrequenz	f – Frequenz	rect - Rechtecksfunktion
+</p>
+    
+<br><h3>Aufgabe 2 - 2.4</h3>
+ <p>Downsampled Sine_hi01</p>
+<object data="txt/out_file_downsampled_sine_hi01.txt" type="text/txt" width="200" height="100">
+ </object>
+<audio src="audio/out_file_downsampled_sine_hi01.wav" controls>
+</audio>
+<br>
+<p>Downsampled Sine_lo01</p>
+<object data="txt/out_file_downsampled_sine_lo01.txt" type="text/txt" width="200" height="100">
+ </object>
+<audio src="audio/out_file_downsampled_sine_lo01.wav" controls>
+</audio>
+    
+<br><h3>Aufgabe 3 - 3.1</h3>
+<p><img src="pics/Ue1_a3.1.png" width="600" height="400"></p>
+
+<br><h3>Aufgabe 3 - 3.3</h3>
+<br>
+<p>Sprache 10Bit Verlust</p>
+<audio src="audio/out_file_Sprache_FireWire10rb.wav" controls></audio>
+<br>
+<img src="pics/Plot FireWire_Sprache10rb.PNG">
+<br>
+<p>Sprache 12Bit Verlust</p>
+<audio src="audio/out_file_Sprache_FireWire12rb.wav" controls></audio>
+<br>
+<img src="pics/Plot FireWire_Sprache12rb.PNG">
+<br>
+    
+<br><h3>Aufgabe 3 - 3.4</h3>
+<p>Sine_hi01 Quantisiert</p>
+<br>
+<audio src="audio/out_file_sine_hi01_q.wav" controls>
+</audio>
+<br>
+<p>Sine_lo01 Quantisiert</p>
+<br>
+<audio src="audio/out_file_sine_lo01_q.wav" controls>
+</audio>
+<br>    
+    
+</body>
+</html>
