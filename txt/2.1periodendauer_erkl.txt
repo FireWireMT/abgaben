@@ -1,0 +1,1 @@
+Die Periodendauer vom grating_H3 ist geschätzt 14 Pixel lang. Die Periodendauer vom grating_V3 ist ungefähr 8 Pixel lang

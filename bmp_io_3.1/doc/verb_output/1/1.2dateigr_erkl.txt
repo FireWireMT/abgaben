@@ -1,0 +1,2 @@
+Berechnung der Filegröße:
+Breite * Höhe * bitsPerPixel + Headergröße

@@ -29,23 +29,63 @@ Fl&auml;chenbild
 <img src="pics/a2_fl%C3%A4che1.bmp">
 <br>
     
-<p>Beschreibung</p>
-<p>L&ouml;sung</p>
+<p>Informationen im Header:<br>
+fileSize: Größe der Datei<br>
+bitsPerPixel: gespeichterte Bits pro Pixel<br>
+Breite: Anzahl der Pixel in horizontaler Ausrichtung<br>
+Höhe: Anzahl der Pixel in vertikaler Ausrichtung</p>
 
+<br><h3>Aufgabe 1 - 1.2</h3>    
+<p>Berechnung der Filegröße:<br>
+Breite * Höhe * bitsPerPixel + Headergröße</p>    
+    
 <br><h3>Aufgabe 2 - 2.1</h3>
+<p><img src="pics/textausgabe.JPG"></p>
 <br>
-<object data="txt/out_grating_H3.txt" type="text/txt" width="200" height="100">
- </object>
-<img src="pics/out_grating_H3.bmp">
+<p>Die Periodendauer von grating_H3 ist geschätzt 14 Pixel lang, von grating_V3 8 Pixel lang.</p>
 <br>
-<object data="txt/out_grating_V3.txt" type="text/txt" width="200" height="100">
- </object>
-<img src="pics/out_grating_V3.bmp">
-<br>
+<table style="width=100%" border="1">
+    <tr>
+        <th>Periode von grating_H3:</th>
+        <th>Periode von grating_V3:</th>
+    </tr>
+    <td>239 <br>
+        196 <br>
+        136 <br>
+        75 <br>
+        26 <br>
+        1 <br>
+        8 <br>
+        43 <br>
+        99 <br>
+        161 <br>
+        216 <br>
+        248 <br>
+        251 <br>
+        224 
+    </td>
+    <td>
+       205 <br>
+        96 <br>
+        11 <br>
+        16 <br>
+        107 <br>
+        214 <br>
+        253 <br>
+        195 
+    </td>
+    
+</table>    
+    
 <br><h3>Aufgabe 2 - 2.2</h3>
 <p>Das Abtasttheorem besagt, ähnlich wie bei audiosignalen, dass bei einer maximalen Frequenz fMax = 1/TMax  die Abtastfrequenz fabtast = 1/Tabtast mehr als zwei Mal der fMax sein muss, um das Signal genau zu beschreiben. Der Grenzfall ist dabei fabtast = 2*fMax, da bei falschen Abtastpunkten das Signal immer schwarz überträgt und jeder Pixel damit schwarz dargestellt wird.</p>
+    
+<br>
+<img src="pics/Abtasttheorem.png" width="400" height="400">
+<br><br>
 
 <br><h3>Aufgabe 2 - 2.3</h3>
+<p><img src="pics/graustufen.JPG"></p>
 <p>
 brightness = Math.sqrt{0.299*Math.pow(r,2) + 0.587*Math.pow(g,2) + 0.114*(Math.pow(b,2))}
 <br>
@@ -63,10 +103,7 @@ Fl&auml;che grau
 <br><h3>Aufgabe 2 - 2.4</h3>
 <p>Das Aliasing entsteht durch eine Bewegung, die schneller ist als die aufnehmbaren Bilder pro Sekunde des Aufnahmegeräts. Dadurch entsteht die Illusion, dass das Objekt sich gar nicht oder Rückwärts bewegt.
 <br><br>
-<img src="pics/out_grating_H3_downsampledHori.bmp">
-<br>
-<img src="pics/out_grating_V3_downsampledVert.bmp">  </p>
-    
+  
 <br><h3>Aufgabe 2 - 2.5</h3>
 <br>
 Im für das horizontale Downsampling benutzen wir das Bild mit den vertikalen Streifen, da bei dem mit horizontalen Streifen die Änderung der Pixel nichts bewirken würde. Jeder Pixel in einer Zeile hat den gleichen Farbwert wie sein Vorgänger.
@@ -93,29 +130,92 @@ Downsampled Fl&auml;che
 Schon beim ersten Downsampling mit Modulo 2, erkennt man die Verschlechterung im Bild</p>   
     
 <br><h3>Aufgabe 3 - 3.2</h3>
+<p><img src="pics/bitreduzierung.JPG"></p>    
+
 <br>
-Detailbild Bitreduktion
+Detailbild um 1 Bit reduziert:
 <br>
-<p><img src="pics/a2_detail1_r4.bmp">
+<p><img src="pics/a2_detail1_red1.bmp">
 <br><br>
-Fl&auml;chenbild Bitreduktion
+Detailbild um 2 Bit reduziert:
 <br>
-<img src="pics/a2_fl%C3%A4che_r1.bmp">
+<p><img src="pics/a2_detail1_red2.bmp">
 <br><br>
-Schon ab der Reduktion um ein Bit, verschlechtert sich die Qualität des Flächenbildes stark.
-Die Ränder der Objekte sind sehr kantig und pixelig.
-Bei der Reduktion des Detailbildes sinkt die Qualität erst nach der Reduktion von 4 Bit stark/merklich. </p> 
+Detailbild um 3 Bit reduziert:
+<br>
+<p><img src="pics/a2_detail1_red3.bmp">
+<br><br>
+Detailbild um 4 Bit reduziert:
+<br>
+<p><img src="pics/a2_detail1_red4.bmp">
+<br><br>
+Detailbild um 5 Bit reduziert:
+<br>
+<p><img src="pics/a2_detail1_red5.bmp">
+<br><br>
+    
+Fl&auml;chenbild um 1 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red1.bmp">
+<br><br>
+Fl&auml;chenbild um 2 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red2.bmp">
+<br><br>
+    Fl&auml;chenbild um 3 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red3.bmp">
+<br><br>
+    Fl&auml;chenbild um 4 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red4.bmp">
+<br><br>
+    Fl&auml;chenbild um 5 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red5.bmp">
+<br><br>
+<p>Eine merkliche Verschlechterung tritt bei der Reduktion von 4 Bit auf.</p>
 
 <br><h3>Aufgabe 3 - 3.3</h3>
+<p><img src="pics/bitreduzierung_dif.JPG"></p>    
+
 <p>
-Bitreduktion Detail
+Differenz-Detailbild um 1 Bit reduziert:
 <br>
-<img src="pics/out_a2_detail_3.3.bmp"> 
+<img src="pics/a2_detail1_red1dif.bmp"> 
 <br><br>
-Bitreduktion Fl&auml;che
+Differenz-Detailbild um 2 Bit reduziert:
 <br>
-<img src="pics/out_a2_fläche_3.3.bmp"> <br><br>
-Wir haben eine Bitreduzierung von 4 verwendet und hier sieht man schon eine Wage Ähnlichkeit mit dem Uhrsprungsbild.<br>
+<img src="pics/a2_detail1_red2dif.bmp"> 
+<br><br>
+Differenz-Detailbild um 3 Bit reduziert:
+<br>
+<img src="pics/a2_detail1_red3dif.bmp"> 
+<br><br>
+Differenz-Detailbild um 4 Bit reduziert:
+<br>
+<img src="pics/a2_detail1_red4dif.bmp"> 
+<br><br>
+Differenz-Detailbild um 5 Bit reduziert:
+<br>
+<img src="pics/a2_detail1_red5dif.bmp"> 
+<br><br>
+Differenz-Fl&auml;chenbild um 1 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red1dif.bmp"> <br><br>
+Differenz-Fl&auml;chenbild um 2 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red2dif.bmp"> <br><br>
+Differenz-Fl&auml;chenbild um 3 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red3dif.bmp"> <br><br>
+Differenz-Fl&auml;chenbild um 4 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red4dif.bmp"> <br><br>
+Differenz-Fl&auml;chenbild um 5 Bit reduziert:
+<br>
+<img src="pics/a2_fl%C3%A4che1_red5dif.bmp"> <br><br>
+
 </p>
 <br>    
 </body>

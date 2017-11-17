@@ -1,0 +1,3 @@
+Bei einer Videoaufnahme tritt Aliasing auf wenn die Bildrate, für die aufzunehmende Bewegung, zu niedrig ist. Dadurch werden
+falsche Eindrücke vermittelt, wie z. B. dass die Drehung eines Autorads stillzustehen scheint oder sich rückwärts bewegt.
+Beim Bild gibt es nur eine endliche Zahl an Pixel die den Eindruck des Bildes einfangen müssen. Ist das Pixelraster nicht fein genug tritt Aliasing auf. 

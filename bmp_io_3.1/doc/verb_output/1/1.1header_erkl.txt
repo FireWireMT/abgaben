@@ -1,0 +1,5 @@
+Informationen im Header:
+fileSize: Größe der Datei
+bitsPerPixel: gespeichterte Bits pro Pixel
+Breite: Anzahl der Pixel in horizontaler Ausrichtung
+Höhe: Anzahl der Pixel in vertikaler Ausrichtung
