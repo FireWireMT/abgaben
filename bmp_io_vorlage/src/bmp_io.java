@@ -19,11 +19,11 @@ public final class bmp_io {
 		if (args.length < 1) 
 			System.out.println("At least one filename specified  (" + args.length + ")"); 
 		
-		inFilename = "doc/grating_V3.bmp";//args[0];
+		inFilename = "doc/a2_detail1.bmp";//args[0];
 		InputStream in = new FileInputStream(inFilename);
 		bmp = BmpReader.read_bmp(in);
 		
-		String file = "doc/verb_output/grating_V3_down1.txt";
+		String file = "doc/output/detail_bitredu8.txt";
 		
 		FileWriter fw = null;
 		BufferedWriter bw = null;
@@ -51,13 +51,13 @@ public final class bmp_io {
 	    if (args.length == 1) 
 			System.exit(0);
 
-		outFilename = "doc/verb_output/grating_V3_down1.bmp";//args[1];
+		outFilename = "doc/output/detail_bitredu8.bmp";//args[1];
 		OutputStream out = new FileOutputStream(outFilename);
 	
 		PixelColor pixc = null;
 		
 		// erzeuge graustufenbild
-	/*	for(int y = 0; y < bmp.image.getHeight(); y++) {
+		/*for(int y = 0; y < bmp.image.getHeight(); y++) {
 			for(int x = 0;x < bmp.image.getWidth(); x++) {
 				pixc = bmp.image.getRgbPixel(x, y);
 				int gp = (pixc.r+pixc.g+pixc.b)/3;
@@ -66,26 +66,20 @@ public final class bmp_io {
 			}
 		}*/
 		// downsampling
-		int xpre1 = 0;
-	    int ypre1 = 0;
+		/*int n = 1;
+		int m = 7;
 	    for(int y = 0; y < bmp.image.getHeight(); y++) {
 	      for(int x = 0; x < bmp.image.getWidth(); x++) {
-	        if(y % 2 !=0){
-	          ypre1 = y -1;
-	          PixelColor ynew = new PixelColor(bmp.image.getRgbPixel(x, ypre1).r, bmp.image.getRgbPixel(x, ypre1).g, bmp.image.getRgbPixel(x, ypre1).b);
-	          bmp.image.setRgbPixel(x, y, ynew);
-	          if(x % 2 !=0){
-	            xpre1 = x - 1;
-	            PixelColor xnew = new PixelColor(bmp.image.getRgbPixel(xpre1, y).r, bmp.image.getRgbPixel(xpre1, y).g, bmp.image.getRgbPixel(xpre1, y).b);
-	            bmp.image.setRgbPixel(x, y, xnew);  
-	          }
-	        }
+	        if((y) % m != 0 && x != 0 && y != 0 ){
+	        	PixelColor downsampling = bmp.image.getRgbPixel(x-n,y-n);
+	        	bmp.image.setRgbPixel(x,y,downsampling);
+			}
 	      }
-	    }
+	    }*/
 					
 		// bitreduzierung
-	/*	PixelColor p2 = null;
-		int reduced_bits = 5;
+		/*PixelColor p2 = null;
+		int reduced_bits = 2;
 		for(int y = 0; y < bmp.image.getHeight(); y++){
 			for(int x = 0; x < bmp.image.getWidth(); x++){
 				p2 = bmp.image.getRgbPixel(x, y);
@@ -98,35 +92,43 @@ public final class bmp_io {
 				
 				bmp.image.setRgbPixel(x, y, p2);
 			}
-		}
+		}*/
 				
 		// bitreduzierung differenz
-		int reduced_bits = 1;
-		PixelColor p2 = null;
+		int reduced_bits = 8;
 		int bitsPerColor = 8;
-		PixelColor p3 = null;
-		PixelColor p4 = null;
 		for(int y = 0; y < bmp.image.getHeight(); y++) {
 			for (int x = 0; x < bmp.image.getWidth(); x++) {
-				p2 = new PixelColor(bmp.image.getRgbPixel(x, y).g,
-									bmp.image.getRgbPixel(x, y).b,
-									bmp.image.getRgbPixel(x, y).r);;
-				p3 = new PixelColor(bmp.image.getRgbPixel(x, y).g,
-									bmp.image.getRgbPixel(x, y).b,
-									bmp.image.getRgbPixel(x, y).r);;
-				
-				p2.r = (int)(p2.r/Math.pow(2,  reduced_bits));
-				p2.g = (int)(p2.g/Math.pow(2,  reduced_bits));
-				p2.b = (int)(p2.b/Math.pow(2,  reduced_bits));
-				p2.r = (int)(p2.r*Math.pow(2,  reduced_bits));
-				p2.g = (int)(p2.g*Math.pow(2,  reduced_bits));
-				p2.b = (int)(p2.b*Math.pow(2,  reduced_bits));					
+				PixelColor color = bmp.image.getRgbPixel(x,y);
+
+				int r = color.r;
+				int g = color.g;
+				int b = color.b;
+
+
+				color.r = (int)(color.r/Math.pow(2,  reduced_bits));
+				color.g = (int)(color.g/Math.pow(2,  reduced_bits));
+				color.b = (int)(color.b/Math.pow(2,  reduced_bits));
+
+				color.r = (int)(color.r*Math.pow(2,  reduced_bits));
+				color.g = (int)(color.g*Math.pow(2,  reduced_bits));
+				color.b = (int)(color.b*Math.pow(2,  reduced_bits));
+
+				color.r -= r;
+				color.g -= g;
+				color.b -= b;
+
+				color.r *= Math.pow(2, bitsPerColor-reduced_bits-1);
+				color.g *= Math.pow(2, bitsPerColor-reduced_bits-1);
+				color.b *= Math.pow(2, bitsPerColor-reduced_bits-1);
+
+				color.r = 127 + color.r/2;
+				color.g = 127 + color.g/2;
+				color.b = 127 + color.b/2;
 									
-				bmp.image.setRgbPixel(x,y, new PixelColor((int)(((p3.g-p2.g)/2+127)*Math.pow(2,  8-reduced_bits-1)),
-														  (int)(((p3.r-p2.r)/2+127)*Math.pow(2,  8-reduced_bits-1)),
-														  (int)(((p3.b-p2.b)/2+127)*Math.pow(2,  8-reduced_bits-1))));
+				bmp.image.setRgbPixel(x,y, color);
 			}
-		}*/
+		}
 				
 		try {
 			BmpWriter.write_bmp(out, bmp);
