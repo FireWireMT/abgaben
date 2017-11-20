@@ -19,11 +19,11 @@ public final class bmp_io {
 		if (args.length < 1) 
 			System.out.println("At least one filename specified  (" + args.length + ")"); 
 		
-		inFilename = "doc/a2_detail1.bmp";//args[0];
+		inFilename = "doc/a2_fläche1.bmp";//args[0];
 		InputStream in = new FileInputStream(inFilename);
 		bmp = BmpReader.read_bmp(in);
 		
-		String file = "doc/output/detail_bitredu8.txt";
+		String file = "doc/output/a2_fläche_down5.txt";
 		
 		FileWriter fw = null;
 		BufferedWriter bw = null;
@@ -51,7 +51,7 @@ public final class bmp_io {
 	    if (args.length == 1) 
 			System.exit(0);
 
-		outFilename = "doc/output/detail_bitredu8.bmp";//args[1];
+		outFilename = "doc/output/a2_fläche_down5.bmp";//args[1];
 		OutputStream out = new FileOutputStream(outFilename);
 	
 		PixelColor pixc = null;
@@ -66,16 +66,16 @@ public final class bmp_io {
 			}
 		}*/
 		// downsampling
-		/*int n = 1;
-		int m = 7;
+		int n = 1;
+		int m = 5;
 	    for(int y = 0; y < bmp.image.getHeight(); y++) {
 	      for(int x = 0; x < bmp.image.getWidth(); x++) {
-	        if((y) % m != 0 && x != 0 && y != 0 ){
+	        if((x) % m != 0 && x != 0 && y != 0 ){
 	        	PixelColor downsampling = bmp.image.getRgbPixel(x-n,y-n);
 	        	bmp.image.setRgbPixel(x,y,downsampling);
 			}
 	      }
-	    }*/
+	    }
 					
 		// bitreduzierung
 		/*PixelColor p2 = null;
@@ -95,7 +95,7 @@ public final class bmp_io {
 		}*/
 				
 		// bitreduzierung differenz
-		int reduced_bits = 8;
+		/*int reduced_bits = 8;
 		int bitsPerColor = 8;
 		for(int y = 0; y < bmp.image.getHeight(); y++) {
 			for (int x = 0; x < bmp.image.getWidth(); x++) {
@@ -128,7 +128,7 @@ public final class bmp_io {
 									
 				bmp.image.setRgbPixel(x,y, color);
 			}
-		}
+		}*/
 				
 		try {
 			BmpWriter.write_bmp(out, bmp);

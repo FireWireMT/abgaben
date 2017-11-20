@@ -106,28 +106,93 @@ Fl&auml;che grau
   
 <br><h3>Aufgabe 2 - 2.5</h3>
 <br>
-Im für das horizontale Downsampling benutzen wir das Bild mit den vertikalen Streifen, da bei dem mit horizontalen Streifen die Änderung der Pixel nichts bewirken würde. Jeder Pixel in einer Zeile hat den gleichen Farbwert wie sein Vorgänger.
-Unsere Periodendauer ist 12 Pixel, daher haben wir bei der Abtastung aller 5 Pixel ein unregelmäßiges Muster: 
+Für das horizontale Downsampling benutzen wir das Bild mit den vertikalen Streifen, da bei dem mit horizontalen Streifen die Änderung der Pixel nichts bewirken würde. Jeder Pixel in einer Zeile hat den gleichen Farbwert wie sein Vorgänger.
+Unsere Periodendauer ist 14 Pixel, daher haben wir bei einer Abtastung ab 3 Pixeln ein unregelmäßiges Muster: 
+<p>Abtastung von 1 Pixel:</p>
+<img src="pics/grating_H3_down1.bmp">    
 <br>
 <br>
-<img src="pics/grating_H3_moire.bmp">    
+<p>Abtastung von 2 Pixeln:</p>
+<img src="pics/grating_H3_down2.bmp">    
 <br>
 <br>
-Entsprechend für das vertikale Sampling:
+<p>Abtastung von 3 Pixeln:</p>
+<img src="pics/grating_H3_down3.bmp">    
 <br>
 <br>
-<img src="pics/grating_V3_moire.bmp">
+<p>Abtastung von 4 Pixeln:</p>
+<img src="pics/grating_H3_down4.bmp">    
 <br>
 <br>
-Downsampled Detail
+<p>Abtastung von 5 Pixeln:</p>
+<img src="pics/grating_H3_down5.bmp">    
 <br>
-<p><img src="pics/out_a2_detail_downsampledHori.bmp">
-<br><br>
-Downsampled Fl&auml;che
 <br>
-<img src="pics/out_a2_fl%C3%A4che_downsampledHori.bmp">
-<br><br>
-Schon beim ersten Downsampling mit Modulo 2, erkennt man die Verschlechterung im Bild</p>   
+
+Entsprechend für das vertikale Sampling nur die vertikalen Streifen, da wir eine Periodendauer von 8 Pixeln haben, sieht man auch hier ab 3 Pixeln Abtastung erste Unterschiede:
+<p>Abtastung von 1 Pixel:</p>
+<img src="pics/grating_V3_down1.bmp">    
+<br>
+<br>
+<p>Abtastung von 2 Pixeln:</p>
+<img src="pics/grating_V3_down2.bmp">    
+<br>
+<br>
+<p>Abtastung von 3 Pixeln:</p>
+<img src="pics/grating_V3_down3.bmp">    
+<br>
+<br>
+<p>Abtastung von 4 Pixeln:</p>
+<img src="pics/grating_V3_down4.bmp">    
+<br>
+<br>
+<p>Abtastung von 5 Pixeln:</p>
+<img src="pics/grating_V3_down5.bmp">    
+<br>
+<br>
+Downsampled Detail-Bild: Auch hier sieht man ab einer Abtastung von 3 Pixeln eine sichtbare Verschlechterung der Qualität des Bildes. Die ursprüngliche Struktur der Details ist hier nicht mehr erkennbar und teilweise werden Strukturen wie Linien sogar umgekehrt.
+<p>Abtastung von 1 Pixel:</p>
+<img src="pics/a2_detail_down1.bmp">    
+<br>
+<br>
+<p>Abtastung von 2 Pixeln:</p>
+<img src="pics/a2_detail_down2.bmp">    
+<br>
+<br>
+<p>Abtastung von 3 Pixeln:</p>
+<img src="pics/a2_detail_down3.bmp">    
+<br>
+<br>
+<p>Abtastung von 4 Pixeln:</p>
+<img src="pics/a2_detail_down4.bmp">    
+<br>
+<br>
+<p>Abtastung von 5 Pixeln:</p>
+<img src="pics/a2_detail_down5.bmp">    
+<br>
+<br>
+Downsampled Fläche-Bild: Hier ist ebenfalls erst ab einer Abtastung von 3 Pixeln eine Eindeutige Veränderung zu erkennen. Die Ränder werden nach und nach immer mehr entglättet und nehmen eine zackenförmige Struktur an.
+<br>
+<p>Abtastung von 1 Pixel:</p>
+<img src="pics/a2_fläche_down1.bmp">    
+<br>
+<br>
+<p>Abtastung von 2 Pixeln:</p>
+<img src="pics/a2_fläche_down2.bmp">    
+<br>
+<br>
+<p>Abtastung von 3 Pixeln:</p>
+<img src="pics/a2_fläche_down3.bmp">    
+<br>
+<br>
+<p>Abtastung von 4 Pixeln:</p>
+<img src="pics/a2_fläche_down4.bmp">    
+<br>
+<br>
+<p>Abtastung von 5 Pixeln:</p>
+<img src="pics/a2_fläche_down5.bmp">    
+<br>
+<br>   
     
 <br><h3>Aufgabe 3 - 3.2</h3>
 <p><img src="pics/bitreduzierung.JPG"></p>    
