@@ -49,6 +49,8 @@ public final class bmp_io {
 		
 		// Graustufenbild, Cb und Cr
 		int[] counter = new int[256]; 
+		int yCounter = 0;
+		double konCount = 0;
 		for(int y = 0; y < bmp.image.getHeight(); y++) {
 			for(int x = 0;x < bmp.image.getWidth(); x++) {
 				int r = bmp.image.getRgbPixel(x, y).r;
@@ -76,6 +78,7 @@ public final class bmp_io {
 				PixelColor newpx = new PixelColor((int)newB,(int)newG,(int)newR);
 				bmp.image.setRgbPixel(x, y, newpx);	
 				
+				yCounter += Y;
 				for(int index = 0; index < 256; index++){
 					if(Y == index){
 						counter[index]++;
@@ -85,9 +88,26 @@ public final class bmp_io {
 				
 				
 			}
+		} 
+		double midY = yCounter/(bmp.image.getWidth()*bmp.image.getHeight());
+		for(int y = 0; y < bmp.image.getHeight(); y++) {
+			for(int x = 0;x < bmp.image.getWidth(); x++) {
+				int r = bmp.image.getRgbPixel(x, y).r;
+				int g = bmp.image.getRgbPixel(x,y).g;
+				int b = bmp.image.getRgbPixel(x,y).b;
+				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
+				
+				konCount += Y - midY;
+			}
 		}
+		
+		System.out.println(konCount);
+		double konY = Math.sqrt(Math.pow(konCount, 2)/(bmp.image.getWidth()*bmp.image.getHeight()));
+		System.out.printf("mittlere Helligkeit: %f5 %n", midY);
+		System.out.printf("Kontrast: %f5 %n", konY);
+		
 		for(int c : counter){
-			System.out.println(c);
+//			System.out.println(c);
 			writer.println(c);
 		}
 //		
