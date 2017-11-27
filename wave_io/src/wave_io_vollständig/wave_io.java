@@ -1,4 +1,4 @@
-package wave_io_vollst√§ndig;
+package wave_io_vollst‰ndig;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;

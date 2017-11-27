@@ -1,4 +1,4 @@
-package wave_io_vollst√§ndig;
+package wave_io_vollst‰ndig;
 
 
 // File format is based on the information from
