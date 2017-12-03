@@ -20,11 +20,11 @@ public final class bmp_io {
 		if (args.length < 1) 
 			System.out.println("At least one filename specified  (" + args.length + ")"); 
 		
-		inFilename = "doc/output/a4_detail_Y.bmp";//args[0];
+		inFilename = "doc/a2_detail1.bmp";//args[0];
 		InputStream in = new FileInputStream(inFilename);
 		bmp = BmpReader.read_bmp(in);
 		
-		PrintWriter writer = new PrintWriter(new FileWriter("doc/output/out_histogramm.txt"));
+		PrintWriter writer = new PrintWriter(new FileWriter("doc/output/out_histogramm_Y_test.txt"));
 		
 		// BGR schreiben horizontal 2.1.	
     	for(int x = 0; x < bmp.image.getWidth(); x++) {
@@ -44,7 +44,7 @@ public final class bmp_io {
 	    if (args.length == 1) 
 			System.exit(0);
 
-		outFilename = "doc/output/a4_detail_text.bmp";//args[1];
+		outFilename = "doc/output/a4_detail_K_5.0.bmp";//args[1];
 		OutputStream out = new FileOutputStream(outFilename);
 		
 		// Graustufenbild, Cb und Cr
@@ -75,7 +75,12 @@ public final class bmp_io {
 				double newR = Y + 1.403 * (Cr-128);
 				double newG = Y - 0.344 * (Cb-128) - 0.714*(Cr-128);
 				double newB = Y + 1.773 * (Cb-128);
-				PixelColor newpx = new PixelColor((int)newB,(int)newG,(int)newR);
+				double newY = Y;
+				double j = Y;	//Pixelintensität(Y)
+				double k = 5.0;	//Kontrastäanderung
+				double h = 0.0;	//Helligkeitsänderung
+				double f = k*(j-128)+128+h;
+				PixelColor newpx = new PixelColor((int)(r*k),(int)(g*k),(int)(b*k));
 				bmp.image.setRgbPixel(x, y, newpx);	
 				
 				yCounter += Y;
@@ -97,12 +102,14 @@ public final class bmp_io {
 				int b = bmp.image.getRgbPixel(x,y).b;
 				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
 				
-				konCount += Y - midY;
+				konCount += Math.pow(Y - midY, 2);
 			}
 		}
 		
-		System.out.println(konCount);
-		double konY = Math.sqrt(Math.pow(konCount, 2)/(bmp.image.getWidth()*bmp.image.getHeight()));
+//		System.out.println(konCount);
+//		f(j) = k*(j-128)+128+h
+
+		double konY = Math.sqrt(konCount/(bmp.image.getWidth()*bmp.image.getHeight()));
 		System.out.printf("mittlere Helligkeit: %f5 %n", midY);
 		System.out.printf("Kontrast: %f5 %n", konY);
 		
