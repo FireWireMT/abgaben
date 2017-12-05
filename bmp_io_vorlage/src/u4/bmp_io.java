@@ -20,11 +20,11 @@ public final class bmp_io {
 		if (args.length < 1) 
 			System.out.println("At least one filename specified  (" + args.length + ")"); 
 		
-		inFilename = "doc/a2_detail1.bmp";//args[0];
+		inFilename = "doc/output/a4_detail_RekonstruktionY.bmp";//args[0];
 		InputStream in = new FileInputStream(inFilename);
 		bmp = BmpReader.read_bmp(in);
 		
-		PrintWriter writer = new PrintWriter(new FileWriter("doc/output/out_histogramm_Y_test.txt"));
+		PrintWriter writer = new PrintWriter(new FileWriter("doc/output/out_histogramm_K_neg.txt"));
 		
 		// BGR schreiben horizontal 2.1.	
     	for(int x = 0; x < bmp.image.getWidth(); x++) {
@@ -44,7 +44,7 @@ public final class bmp_io {
 	    if (args.length == 1) 
 			System.exit(0);
 
-		outFilename = "doc/output/a4_detail_K_5.0.bmp";//args[1];
+		outFilename = "doc/output/a4_detail_K_neg.bmp";//args[1];
 		OutputStream out = new FileOutputStream(outFilename);
 		
 		// Graustufenbild, Cb und Cr
@@ -56,44 +56,64 @@ public final class bmp_io {
 				int r = bmp.image.getRgbPixel(x, y).r;
 				int g = bmp.image.getRgbPixel(x,y).g;
 				int b = bmp.image.getRgbPixel(x,y).b;
-				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
-				double Cb = (-0.169*r - 0.331*g + 0.5*b)+128;
-				double Cr = (0.5*r - 0.419*g - 0.081*b)+128;
-				//Farbwerte Y
-				double yr = 0.299*r;
-				double yg = 0.587*g;
-				double yb = 0.114*b;
+
 				//Farbwerte Cb
-				double cbr = -0.169*r + 128;
-				double cbg = -0.331*g + 128;
-				double cbb = 0.5*b + 128;
+				double cbr = -0.169*r;
+				double cbg = -0.331*g;
+				double cbb = 0.5*b;
 				//Farbwerte Cr
-				double crr = 0.5*r + 128;
-				double crg = -0.419*g + 128;
-				double crb = -0.081*b + 128;
+				double crr = 0.5*r;
+				double crg = -0.419*g;
+				double crb = -0.081*b;
+
+				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
+				double Cb = (int)(cbr + cbg + cbb)+128;
+				double Cr = (int)(crr + crg + crb)+128;
 				//Rekonstruktion
-				double newR = Y + 1.403 * (Cr-128);
-				double newG = Y - 0.344 * (Cb-128) - 0.714*(Cr-128);
-				double newB = Y + 1.773 * (Cb-128);
-				double newY = Y;
-				double j = Y;	//Pixelintensität(Y)
-				double k = 5.0;	//Kontrastäanderung
-				double h = 0.0;	//Helligkeitsänderung
+
+				double j = Y;	//Pixelintensitï¿½t(Y)
+				double k = -1;	//Kontrastï¿½anderung
+				j *= k;
+				double h = 0.0;	//Helligkeitsï¿½nderung
+				//j += h;
+				double newR = j + 1.403 * (Cr-128);
+				double newG = j - 0.344 * (Cb-128) - 0.714*(Cr-128);
+				double newB = j + 1.773 * (Cb-128);
 				double f = k*(j-128)+128+h;
-				PixelColor newpx = new PixelColor((int)(r*k),(int)(g*k),(int)(b*k));
-				bmp.image.setRgbPixel(x, y, newpx);	
-				
-				yCounter += Y;
+
+				if(newR < 0){
+					newR=0;
+				}
+				if(newG < 0){
+					newG=0;
+				}
+				if(newB < 0){
+					newB=0;
+				}
+
+				if(newR > 255){
+					newR=255;
+				}
+				if(newG > 255){
+					newG=255;
+				}
+				if(newB > 255){
+					newB=255;
+				}
+
+				PixelColor newpx = new PixelColor((int)(newB),(int)(newG),(int)(newR));
+				bmp.image.setRgbPixel(x, y, newpx);
+
+				yCounter += j;
 				for(int index = 0; index < 256; index++){
-					if(Y == index){
+					if(j == index){
 						counter[index]++;
 					}
 				}
-				
-				
-				
+
+
 			}
-		} 
+		}
 		double midY = yCounter/(bmp.image.getWidth()*bmp.image.getHeight());
 		for(int y = 0; y < bmp.image.getHeight(); y++) {
 			for(int x = 0;x < bmp.image.getWidth(); x++) {
@@ -101,7 +121,7 @@ public final class bmp_io {
 				int g = bmp.image.getRgbPixel(x,y).g;
 				int b = bmp.image.getRgbPixel(x,y).b;
 				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
-				
+
 				konCount += Math.pow(Y - midY, 2);
 			}
 		}
@@ -112,11 +132,11 @@ public final class bmp_io {
 		double konY = Math.sqrt(konCount/(bmp.image.getWidth()*bmp.image.getHeight()));
 		System.out.printf("mittlere Helligkeit: %f5 %n", midY);
 		System.out.printf("Kontrast: %f5 %n", konY);
-		
-		for(int c : counter){
-//			System.out.println(c);
-			writer.println(c);
+
+		for(int c: counter){
+			System.out.println(c);
 		}
+
 //		
 //		// downsampling
 //		int xpre1 = 0; //horizontales Downsampling
