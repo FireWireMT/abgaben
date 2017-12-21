@@ -22,8 +22,8 @@ public class wave_io {
 			}
 		}
 
-		inFilename = "../audio/Musik_FireWire.wav"; // args[0];
-		outFilename = "../audio/Musik_FireWireFilterNeg.wav"; // args[1];
+		inFilename = "../audio/white_noise_ue5.wav"; // args[0];
+		outFilename = "../audio/white_noise_Pos.wav"; // args[1];
 
 		// read wave data, sample contained in array readWavFile.sound
 		WavFile readWavFile = null;
@@ -76,24 +76,27 @@ public class wave_io {
 			float aEcho = (float) 0.6;
 
 //			float echo = 10f;
-//			float t = (echo / 1000f) * 44100f;
-//			System.out.println("t: " + t);
-//			for (int k = 0; k < samples; k++) {
+//		float t = (echo / 1000f) * 44100f;
+//		System.out.println("t: " + t);
+//		for (int k = 0; k < samples; k++) {
 //				if (k > t) {
 //					readWavFile.sound[k] = (short) (readWavFile.sound[k] + aEcho * (readWavFile.sound[(int) (k - t)]));
 //				}
 //			}
 			
-			//5.3 einfacher Filter
-//			short[] copy = readWavFile.sound;
-//			for(int k = 0; k < samples; k++){
-//				if(k == 0){
-//					y[k] = (short) (0.5 * copy[k] - 0.45 * copy[k]);
-//				} else {
-//					y[k] = (short) (0.5 * copy[k] - 0.45 * copy[k-1]);
-//				}
-//				readWavFile.sound[k] = y [k];
-//			}
+//			5.3 einfacher Filter
+			short[] filter = new short[readWavFile.sound.length];
+			for(int i = 0; i < samples; i++){
+				if( i == 0){
+					filter[i] = (short) ( 0.5 * readWavFile.sound[i] + 0.45 * readWavFile.sound[i]);	
+				}
+				else{
+					filter[i] = (short) ( 0.5 * readWavFile.sound[i] + 0.45 * readWavFile.sound[i-1]);
+				}
+				readWavFile.sound[i] = filter[i];
+			}
+			
+			
 
 			if (args.length == 1)
 				System.exit(0);
