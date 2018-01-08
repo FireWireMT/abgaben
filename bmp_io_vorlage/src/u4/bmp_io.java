@@ -20,7 +20,7 @@ public final class bmp_io {
 		if (args.length < 1) 
 			System.out.println("At least one filename specified  (" + args.length + ")"); 
 		
-		inFilename = "doc/output/a4_detail_RekonstruktionY.bmp";//args[0];
+		inFilename = "doc/a2_fläche1.bmp";//args[0];
 		InputStream in = new FileInputStream(inFilename);
 		bmp = BmpReader.read_bmp(in);
 		
@@ -44,7 +44,7 @@ public final class bmp_io {
 	    if (args.length == 1) 
 			System.exit(0);
 
-		outFilename = "doc/output/a4_detail_K_neg.bmp";//args[1];
+		outFilename = "doc/output/a4_flaeche_Y.bmp";//args[1];
 		OutputStream out = new FileOutputStream(outFilename);
 		
 		// Graustufenbild, Cb und Cr
@@ -101,7 +101,7 @@ public final class bmp_io {
 					newB=255;
 				}
 
-				PixelColor newpx = new PixelColor((int)(newB),(int)(newG),(int)(newR));
+				PixelColor newpx = new PixelColor((int)(Y),(int)(Y),(int)(Y));
 				bmp.image.setRgbPixel(x, y, newpx);
 
 				yCounter += j;
@@ -114,24 +114,24 @@ public final class bmp_io {
 
 			}
 		}
-		double midY = yCounter/(bmp.image.getWidth()*bmp.image.getHeight());
-		for(int y = 0; y < bmp.image.getHeight(); y++) {
-			for(int x = 0;x < bmp.image.getWidth(); x++) {
-				int r = bmp.image.getRgbPixel(x, y).r;
-				int g = bmp.image.getRgbPixel(x,y).g;
-				int b = bmp.image.getRgbPixel(x,y).b;
-				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
-
-				konCount += Math.pow(Y - midY, 2);
-			}
-		}
+//		double midY = yCounter/(bmp.image.getWidth()*bmp.image.getHeight());
+//		for(int y = 0; y < bmp.image.getHeight(); y++) {
+//			for(int x = 0;x < bmp.image.getWidth(); x++) {
+//				int r = bmp.image.getRgbPixel(x, y).r;
+//				int g = bmp.image.getRgbPixel(x,y).g;
+//				int b = bmp.image.getRgbPixel(x,y).b;
+//				int Y =(int) (0.299*r + 0.587*g + 0.114*b);
+//
+//				konCount += Math.pow(Y - midY, 2);
+//			}
+//		}
 		
 //		System.out.println(konCount);
 //		f(j) = k*(j-128)+128+h
 
-		double konY = Math.sqrt(konCount/(bmp.image.getWidth()*bmp.image.getHeight()));
-		System.out.printf("mittlere Helligkeit: %f5 %n", midY);
-		System.out.printf("Kontrast: %f5 %n", konY);
+//		double konY = Math.sqrt(konCount/(bmp.image.getWidth()*bmp.image.getHeight()));
+//		System.out.printf("mittlere Helligkeit: %f5 %n", midY);
+//		System.out.printf("Kontrast: %f5 %n", konY);
 
 		for(int c: counter){
 			System.out.println(c);
