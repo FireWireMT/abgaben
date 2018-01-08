@@ -110,8 +110,11 @@ Sprache Echo 100 ms<br>
 Sprache Echo 200ms<br>
 <p><audio src="audio/Musik_FireWireEcho200.wav" controls>Original</audio></p>  
 
+<p>Wie man erkennt ist bei der Musik erst ab 100 ms Verzögerung ein Unterschied zu erkennen, was aber zu erwarten war. Ansonsten ist sehr deutlich zu hören, wie die Verzögerung auf das Echo einwirkt und es deutlicher zu hören wird je größer die Verzögerung.</p>
+
     
 <br><h3>Aufgabe 2 - b</h3>   
+<p>Wir müssen jeweils mit Abtastwerten von 441/4410/8820 arbeiten. Die Formel dafür kann in unserem Code nachvollzogen werden.</p>      
 Code:<br>    
 <p><img src="pics/a5_2.PNG" width="700" heigth="500"></p>
     
@@ -119,14 +122,19 @@ Code:<br>
 
 Musik Original<br>
 <p><audio src="audio/Musik_FireWire.wav" controls>Original</audio></p>
+<p><img src="pics/ue5_musik.PNG" width="700" heigth="500"></p>
 <br>    
 Musik Filter 0.5*x(k)+0.45*x(k-1)<br>
 <p><audio src="audio/Musik_FireWireFilterPos.wav" controls>Original</audio></p>
+<p><img src="pics/ue5_posfilter.PNG" width="700" heigth="500"></p>
 <br>    
 Musik Filter 0.5*x(k)-0.45*x(k-1)<br>
 <p><audio src="audio/Musik_FireWireFilterNeg.wav" controls>Original</audio></p>
+<p><img src="pics/ue5_negfilter.PNG" width="700" heigth="500"></p>
     
 <p><img src="pics/a5_3.PNG" width="700" heigth="500"></p>
+    
+<p>Wie zu hören ist, filtert der erste Filter eher tiefe Töne heraus und unser zweiter Filter eher die hohen Töne. Das kann man auch an den Graphen erkennen. Zur Vereinfachung haben wir nur den rechten Kanal überprüft. Hier kann man deutliche Unterschiede in der Frequenz der Töne feststellen.</p>
     
 <br><h3>Aufgabe 3 - b</h3>
     
