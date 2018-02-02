@@ -24,26 +24,29 @@
 Wie man an unserem unten stehenden Code erkennen kann haben wir den Filter mit Hilfe einer for-Schleife implementiert. Dabei haben wir für Punkte, die außerhalb des Bildes liegen würden eine if-Bedingung angewandt, die diese abfängt. Solche Punkte werden nun auf unsere mittlere Helligkeit gesetzt. Dies schien uns die beste Möglichkeit, die Randpixel nicht allzusehr zu verändern. 
     </p>
     <p>
-    <img src="pics/a6_code_a1.PNG" width="600" heigth="400">
+    <img src="pics/a6_code_a1.PNG">
     </p>
     
 Nun zu unseren Bildern:
-
+<p>Flächenbild nicht verändert:</p>
     <p>
-        Flächenbild nicht verändert:
-        <img src="pics/a6_flaeche_Y.bmp" width="600" heigth="400">
+        
+        <img src="pics/a6_flaeche_Y.bmp" >
     </p>
+    Flächenbild nach Filter:
     <p>
-        Flächenbild nach Filter:
-        <img src="pics/a6_flaeche_1.bmp" width="600" height="400">
+        
+        <img src="pics/a6_flaeche_1.bmp" >
     </p>
+    Detailbild nicht verändert:
     <p>
-        Detailbild nicht verändert:
-        <img src="pics/a6_detail_Y.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_Y.bmp" >
     </p>
+    Detailbild nach Filter:
     <p>
-        Detailbild nach Filter:
-        <img src="pics/a6_detail_1.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_1.bmp">
     </p>
     
     <p>
@@ -54,14 +57,15 @@ Nun zu unseren Bildern:
 
 <br><h3>Aufgabe 1 - c</h3> 
 <br><p>Das Differenzbild zeigt vor allem die Kanten, die aus dem Bild genommen wurden und weniger scharf geworden sind. Hier bestätigt sich unsere Beobachtung.</p>
-    <p>
-        Differenzbild der Fläche:
-        <img src="pics/a6_flaeche_1c.bmp" width="600" height="400">
+    Differenzbild der Fläche:
+    <p>       
+        
+        <img src="pics/a6_flaeche_1c.bmp">
     </p>
-
+Differenzbild des Detailbildes:
     <p> 
-        Differenzbild des Detailbildes:
-        <img src="pics/a6_detail_1c.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_1c.bmp">
     </p>
     
     Hier sieht man auch noch einmal, dass die feinen Linien des Bildes im Differenzbild auftauchen, das heißt sie wurden tatsächlich durch den Filter komplett entfernt.
@@ -72,7 +76,7 @@ Nun zu unseren Bildern:
     <p>Der Code dazu:</p>
     
     <p> 
-        <img src="pics/a6_code_1c.PNG" width="600" height="400">
+        <img src="pics/a6_code_1c.PNG">
     </p>
 
 <br><h3>Aufgabe 2 - a</h3>
@@ -80,30 +84,33 @@ Nun zu unseren Bildern:
 <p>Zunächst einmal die Erklärung des Codes. Er funktioniert im Grunde genau wie der Code aus der ersten Aufgabe, allerdings muss man die Pixel unterscheiden, da nicht jeder Pixel gleich in die Rechnung eingeht. Das haben wir mit verschiedenen if-Bedingungen gelöst. Am Ende muss der Wert durch 4 geteilt werden, damit wir Werte zwischen 0 und 255 erhalten. <br> Wir haben dann noch zwei Bedingungen eingebaut, falls die Werte doch über 255 oder unter 0 liegen sollten, was im Extremfall passieren kann, wenn ein sehr heller Pixel zum Beispiel nur von dunklen Pixeln umgeben ist.</p>
     
     <p> 
-        <img src="pics/a6_code_2a.PNG" width="600" height="400">
+        <img src="pics/a6_code_2a.PNG">
     </p>
     
     <p> Nun zu den Bildern. Man sieht deutlich, dass die Kanten schärfer geworden sind. Das liegt daran, dass die Werte um den Pixel selbst negativ oder gar nicht in die Pixelberechnung eingehen. Das heißt sehr dunkle Pixel mit hellen Pixeln um sich herum werden noch dunkler und der Übergang wird extremer.</p>
-    
+    Detailbild mit Filter:
     <p> 
-        Detailbild mit Filter:
-        <img src="pics/a6_detail_2a.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_2a.bmp">
     </p>
+    Flächenbild mit Filter:
     <p> 
-        Flächenbild mit Filter:
-        <img src="pics/a6_flaeche_2a.bmp" width="600" height="400">
+        
+        <img src="pics/a6_flaeche_2a.bmp" >
     </p>
     
 <br><h3>Aufgabe 2 - b</h3>   
 <p>Im Differenzbild haben wir wieder den gleichen Code verwendet, wie in 1., da er sich nicht verändert hat.</p>     
     Differenzbilder:
+    <p>Differenzbild des Detailbildes:</p>
     <p> 
-        Differenzbild des Detailbildes:
-        <img src="pics/a6_detail_2b.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_2b.bmp">
     </p>
+    Differenzbild der Fläche:
     <p> 
-        Differenzbild der Fläche:
-        <img src="pics/a6_flaeche_2b.bmp" width="600" height="400">
+        
+        <img src="pics/a6_flaeche_2b.bmp">
     </p>
     
     <p>Hier sehen wir sehr ungenaue Veränderungen, die sich allerdings alle an den Kanten der Bilder ansammeln. Das heißt, dass die Kanten von Ungenauigkeiten befreit wurden und schärfer geworden sind.</p>
@@ -112,18 +119,18 @@ Nun zu unseren Bildern:
     
 <p>Für diesen Filter haben wir alle unsere Matrizenwerte in ein Array abgelegt und dieses Array dann sortiert. Man kann nun den Wert aus dem Array nehmen, der in der Mitte liegt und hat den mittigsten Wert.</p>
     <p> 
-        <img src="pics/a6_code_3.PNG" width="600" height="400">
+        <img src="pics/a6_code_3.PNG">
     </p>
     
     <p>Unser Bild mit Fehlern sieht ohne Filter so aus:
     </p>
     <p> 
-        <img src="pics/a6_flaeche_Y_fehler.bmp" width="600" height="400">
+        <img src="pics/a6_flaeche_Y_fehler.bmp">
     </p>
     
     <p>Das Filterbild sieht bei uns so aus:</p>
     <p> 
-        <img src="pics/a6_flaeche_median.bmp" width="600" height="400">
+        <img src="pics/a6_flaeche_median.bmp">
     </p>
     
     <p> Man sieht deutliche Veränderungen. Manche Fehlerstriche sind komplett entfernt worden. Allerdings sind auch einige wenig oder gar nicht verändert. <br>
@@ -133,31 +140,34 @@ Nun zu unseren Bildern:
     
 <p>Zunächst der Code für die vertikale Richtung des Filters:</p>
     <p> 
-        <img src="pics/a6_code_sobelvert.PNG" width="600" height="400">
+        <img src="pics/a6_code_sobelvert.PNG">
     </p>
     
     <p> Und der Code für die horizontale Richtung:</p>
     <p> 
-        <img src="pics/a6_code_sobelhor.PNG" width="600" height="400">
+        <img src="pics/a6_code_sobelhor.PNG">
     </p>
 
     <p>Die Bilder sehen wiefolgt aus:</p>
-    
+    Fläche horizontal gefiltert:
     <p> 
-        Fläche horizontal gefiltert:
-        <img src="pics/a6_flaeche_sobel_horiz.bmp" width="600" height="400">
+        
+        <img src="pics/a6_flaeche_sobel_horiz.bmp">
     </p>
+    Detailbild horizontal gefiltert:
     <p> 
-        Detailbild horizontal gefiltert:
-        <img src="pics/a6_detail_sobel_horiz.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_sobel_horiz.bmp">
     </p>
+    Fläche vertikal gefiltert:
     <p> 
-        Fläche vertikal gefiltert:
-        <img src="pics/a6_flaeche_sobel_vert.bmp" width="600" height="400">
+        
+        <img src="pics/a6_flaeche_sobel_vert.bmp">
     </p>
+    Detailbild vertikal gefiltert:
     <p> 
-        Detailbild vertikal gefiltert:
-        <img src="pics/a6_detail_sobel_vert.bmp" width="600" height="400">
+        
+        <img src="pics/a6_detail_sobel_vert.bmp">
     </p>
     
     <p>Die Bilder zeigen im Grunde das, was von ihnen erwartet wird. Die Kanten werden angezeigt und alles andere wird ausgeblendet und ist nur noch als graue Fläche gezeigt.
