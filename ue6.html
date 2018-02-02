@@ -1,0 +1,167 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<style type="text/css">
+        <!--
+                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
+                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        //-->
+</style>
+</head>
+
+<body>
+
+<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
+         folgenden.</p>
+</iframe>
+
+<h2>&Uuml;bung 5</h2>
+<br><h3>Aufgabe 1 - a/b</h3><br>
+    <p>
+Wie man an unserem unten stehenden Code erkennen kann haben wir den Filter mit Hilfe einer for-Schleife implementiert. Dabei haben wir für Punkte, die außerhalb des Bildes liegen würden eine if-Bedingung angewandt, die diese abfängt. Solche Punkte werden nun auf unsere mittlere Helligkeit gesetzt. Dies schien uns die beste Möglichkeit, die Randpixel nicht allzusehr zu verändern. 
+    </p>
+    <p>
+    <img src="pics/a6_code_a1.PNG" width="600" heigth="400">
+    </p>
+    
+Nun zu unseren Bildern:
+
+    <p>
+        Flächenbild nicht verändert:
+        <img src="pics/a6_flaeche_Y.bmp" width="600" heigth="400">
+    </p>
+    <p>
+        Flächenbild nach Filter:
+        <img src="pics/a6_flaeche_1.bmp" width="600" height="400">
+    </p>
+    <p>
+        Detailbild nicht verändert:
+        <img src="pics/a6_detail_Y.bmp" width="600" height="400">
+    </p>
+    <p>
+        Detailbild nach Filter:
+        <img src="pics/a6_detail_1.bmp" width="600" height="400">
+    </p>
+    
+    <p>
+        Wie man sehr schön erkennt, sind die Kanten wesentlich weicher geworden und das Bild wirkt im Gesamten unscharf.
+        Bei unserem Detailbild kann man auch erkennen, dass sehr feine Linien, die links im Bild liegen komplett verschwinden.
+        Das liegt daran, dass Pixel an Kanten meist viele Pixel anderer Helligkeiten um sich herum haben. Durch den Filter gehen diese anderen Helligkeiten mit ein in die Pixelberechnung und Randpixel der Kanten werden heller oder dunkler, was die Kanten weniger scharf wirken lässt.
+    </p>
+
+<br><h3>Aufgabe 1 - c</h3> 
+<br><p>Das Differenzbild zeigt vor allem die Kanten, die aus dem Bild genommen wurden und weniger scharf geworden sind. Hier bestätigt sich unsere Beobachtung.</p>
+    <p>
+        Differenzbild der Fläche:
+        <img src="pics/a6_flaeche_1c.bmp" width="600" height="400">
+    </p>
+
+    <p> 
+        Differenzbild des Detailbildes:
+        <img src="pics/a6_detail_1c.bmp" width="600" height="400">
+    </p>
+    
+    Hier sieht man auch noch einmal, dass die feinen Linien des Bildes im Differenzbild auftauchen, das heißt sie wurden tatsächlich durch den Filter komplett entfernt.
+    <p>
+        Wir haben mit einem Kontrast von k=3 gearbeitet, um das Bild ein bisschen deutlicher zu machen.
+    </p>
+    
+    <p>Der Code dazu:</p>
+    
+    <p> 
+        <img src="pics/a6_code_1c.PNG" width="600" height="400">
+    </p>
+
+<br><h3>Aufgabe 2 - a</h3>
+
+<p>Zunächst einmal die Erklärung des Codes. Er funktioniert im Grunde genau wie der Code aus der ersten Aufgabe, allerdings muss man die Pixel unterscheiden, da nicht jeder Pixel gleich in die Rechnung eingeht. Das haben wir mit verschiedenen if-Bedingungen gelöst. Am Ende muss der Wert durch 4 geteilt werden, damit wir Werte zwischen 0 und 255 erhalten. <br> Wir haben dann noch zwei Bedingungen eingebaut, falls die Werte doch über 255 oder unter 0 liegen sollten, was im Extremfall passieren kann, wenn ein sehr heller Pixel zum Beispiel nur von dunklen Pixeln umgeben ist.</p>
+    
+    <p> 
+        <img src="pics/a6_code_2a.PNG" width="600" height="400">
+    </p>
+    
+    <p> Nun zu den Bildern. Man sieht deutlich, dass die Kanten schärfer geworden sind. Das liegt daran, dass die Werte um den Pixel selbst negativ oder gar nicht in die Pixelberechnung eingehen. Das heißt sehr dunkle Pixel mit hellen Pixeln um sich herum werden noch dunkler und der Übergang wird extremer.</p>
+    
+    <p> 
+        Detailbild mit Filter:
+        <img src="pics/a6_detail_2a.bmp" width="600" height="400">
+    </p>
+    <p> 
+        Flächenbild mit Filter:
+        <img src="pics/a6_flaeche_2a.bmp" width="600" height="400">
+    </p>
+    
+<br><h3>Aufgabe 2 - b</h3>   
+<p>Im Differenzbild haben wir wieder den gleichen Code verwendet, wie in 1., da er sich nicht verändert hat.</p>     
+    Differenzbilder:
+    <p> 
+        Differenzbild des Detailbildes:
+        <img src="pics/a6_detail_2b.bmp" width="600" height="400">
+    </p>
+    <p> 
+        Differenzbild der Fläche:
+        <img src="pics/a6_flaeche_2b.bmp" width="600" height="400">
+    </p>
+    
+    <p>Hier sehen wir sehr ungenaue Veränderungen, die sich allerdings alle an den Kanten der Bilder ansammeln. Das heißt, dass die Kanten von Ungenauigkeiten befreit wurden und schärfer geworden sind.</p>
+    
+<br><h3>Aufgabe 3 </h3>
+    
+<p>Für diesen Filter haben wir alle unsere Matrizenwerte in ein Array abgelegt und dieses Array dann sortiert. Man kann nun den Wert aus dem Array nehmen, der in der Mitte liegt und hat den mittigsten Wert.</p>
+    <p> 
+        <img src="pics/a6_code_3.PNG" width="600" height="400">
+    </p>
+    
+    <p>Unser Bild mit Fehlern sieht ohne Filter so aus:
+    </p>
+    <p> 
+        <img src="pics/a6_flaeche_Y_fehler.bmp" width="600" height="400">
+    </p>
+    
+    <p>Das Filterbild sieht bei uns so aus:</p>
+    <p> 
+        <img src="pics/a6_flaeche_median.bmp" width="600" height="400">
+    </p>
+    
+    <p> Man sieht deutliche Veränderungen. Manche Fehlerstriche sind komplett entfernt worden. Allerdings sind auch einige wenig oder gar nicht verändert. <br>
+    Das könnte zum einen daran liegen, dass die weißen Striche zu lang oder dick waren oder sie schlecht für die Matrizenberechnung gelegen haben. Wenn zu viele Pixel eines Fehlers in der Matrix selbst liegen. Wenn nun also mehr als die Hälfte aller Pixel in der Filtermatrix Fehler sind, dann wird dieser nicht korrigiert.</p>
+    
+<br><h3>Aufgabe 4</h3>
+    
+<p>Zunächst der Code für die vertikale Richtung des Filters:</p>
+    <p> 
+        <img src="pics/a6_code_sobelvert.PNG" width="600" height="400">
+    </p>
+    
+    <p> Und der Code für die horizontale Richtung:</p>
+    <p> 
+        <img src="pics/a6_code_sobelhor.PNG" width="600" height="400">
+    </p>
+
+    <p>Die Bilder sehen wiefolgt aus:</p>
+    
+    <p> 
+        Fläche horizontal gefiltert:
+        <img src="pics/a6_flaeche_sobel_horiz.bmp" width="600" height="400">
+    </p>
+    <p> 
+        Detailbild horizontal gefiltert:
+        <img src="pics/a6_detail_sobel_horiz.bmp" width="600" height="400">
+    </p>
+    <p> 
+        Fläche vertikal gefiltert:
+        <img src="pics/a6_flaeche_sobel_vert.bmp" width="600" height="400">
+    </p>
+    <p> 
+        Detailbild vertikal gefiltert:
+        <img src="pics/a6_detail_sobel_vert.bmp" width="600" height="400">
+    </p>
+    
+    <p>Die Bilder zeigen im Grunde das, was von ihnen erwartet wird. Die Kanten werden angezeigt und alles andere wird ausgeblendet und ist nur noch als graue Fläche gezeigt.
+    Interessant ist allerdings das Detailbild der horizontalen Filterung. Dieses zeigt nur eine graue Fläche. Das wird vermutlich daran liegen, dass bei einer horizontalen Abtastung des Bildes keine horizontalen Kanten angezeigt werden. Da wir in unserem Detailbild allerdings nur horizontale Kanten haben, werden keine Kanten angezeigt.</p>
+    
+</body>
+</html>
