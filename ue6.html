@@ -24,7 +24,7 @@
 Wie man an unserem unten stehenden Code erkennen kann haben wir den Filter mit Hilfe einer for-Schleife implementiert. Dabei haben wir für Punkte, die außerhalb des Bildes liegen würden eine if-Bedingung angewandt, die diese abfängt. Solche Punkte werden nun auf unsere mittlere Helligkeit gesetzt. Dies schien uns die beste Möglichkeit, die Randpixel nicht allzusehr zu verändern. 
     </p>
     <p>
-    <img src="pics/a6_code_a1.PNG">
+    <img src="pics/a6_code_a1.PNG" width="600" height="400">
     </p>
     
 Nun zu unseren Bildern:
@@ -76,7 +76,7 @@ Differenzbild des Detailbildes:
     <p>Der Code dazu:</p>
     
     <p> 
-        <img src="pics/a6_code_1c.PNG">
+        <img src="pics/a6_code_1c.PNG" width="600" height="400">
     </p>
 
 <br><h3>Aufgabe 2 - a</h3>
@@ -84,7 +84,7 @@ Differenzbild des Detailbildes:
 <p>Zunächst einmal die Erklärung des Codes. Er funktioniert im Grunde genau wie der Code aus der ersten Aufgabe, allerdings muss man die Pixel unterscheiden, da nicht jeder Pixel gleich in die Rechnung eingeht. Das haben wir mit verschiedenen if-Bedingungen gelöst. Am Ende muss der Wert durch 4 geteilt werden, damit wir Werte zwischen 0 und 255 erhalten. <br> Wir haben dann noch zwei Bedingungen eingebaut, falls die Werte doch über 255 oder unter 0 liegen sollten, was im Extremfall passieren kann, wenn ein sehr heller Pixel zum Beispiel nur von dunklen Pixeln umgeben ist.</p>
     
     <p> 
-        <img src="pics/a6_code_2a.PNG">
+        <img src="pics/a6_code_2a.PNG" width="600" height="400">
     </p>
     
     <p> Nun zu den Bildern. Man sieht deutlich, dass die Kanten schärfer geworden sind. Das liegt daran, dass die Werte um den Pixel selbst negativ oder gar nicht in die Pixelberechnung eingehen. Das heißt sehr dunkle Pixel mit hellen Pixeln um sich herum werden noch dunkler und der Übergang wird extremer.</p>
@@ -119,7 +119,7 @@ Differenzbild des Detailbildes:
     
 <p>Für diesen Filter haben wir alle unsere Matrizenwerte in ein Array abgelegt und dieses Array dann sortiert. Man kann nun den Wert aus dem Array nehmen, der in der Mitte liegt und hat den mittigsten Wert.</p>
     <p> 
-        <img src="pics/a6_code_3.PNG">
+        <img src="pics/a6_code_3.PNG" width="600" height="400">
     </p>
     
     <p>Unser Bild mit Fehlern sieht ohne Filter so aus:
@@ -140,12 +140,12 @@ Differenzbild des Detailbildes:
     
 <p>Zunächst der Code für die vertikale Richtung des Filters:</p>
     <p> 
-        <img src="pics/a6_code_sobelvert.PNG">
+        <img src="pics/a6_code_sobelvert.PNG" width="600" height="400">
     </p>
     
     <p> Und der Code für die horizontale Richtung:</p>
     <p> 
-        <img src="pics/a6_code_sobelhor.PNG">
+        <img src="pics/a6_code_sobelhor.PNG" width="600" height="400">
     </p>
 
     <p>Die Bilder sehen wiefolgt aus:</p>
